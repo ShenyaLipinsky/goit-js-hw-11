@@ -1,5 +1,14 @@
-* {
-  box-sizing: border-box;
+:root {
+  --primary-bg: rgb(255, 255, 240);
+  --search__form-bg: rgba(0, 15, 231, 0.562);
+  --search__form__button-accent: rgba(164, 169, 247, 0.562);
+  --load-more__button-accent: rgba(25, 38, 226, 0.842);
+
+  --secondary-bg: rgba(247, 249, 255, 0.863);
+  --card-bg: rgb(247, 247, 247);
+  /* background-color: rgb(127, 218, 210); */
+  --cards-font: 'Macondo', cursive;
+  --search__form-font: 'Caveat', cursive;
 }
 
 body {
@@ -7,41 +16,152 @@ body {
     'Open Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #fafafa;
+  background-color: var(--primary-bg);
   color: #212121;
   line-height: 1.5;
+  margin: 0;
 }
-
-#search-box {
-  font: inherit;
-  padding: 8px;
-  max-width: 320px;
-  margin-bottom: 6px;
+.hidden {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
 }
-.country-list {
-  list-style: none;
-  padding-left: 0;
+.gallery {
+  display: grid;
+  /* max-width: 1140px; */
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  /* grid-auto-rows: 240px; */
+  /* grid-row-gap: 65px; */
+  /* grid-column-gap: 12px; */
+  grid-gap: 12px;
+  justify-content: center;
+  margin: 24px 10px;
+  /* background-color: var(--secondary-bg); */
 }
-
-.country-item__image {
-  max-width: 45px;
-}
-.country-item {
+a {
+  text-decoration: none;
   display: flex;
+  flex-direction: column;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+    0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+  cursor: zoom-in;
+  background-color: var(--card-bg);
+}
+a:hover {
+  transform: scale(1.03);
+}
+.photo-card {
+  display: flex;
+}
+/* 
+.photo-card img:hover {
+  transform: scale(1.03);
+} */
+
+.photo-card img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: transform var(--animation-duration) var(--timing-function);
+}
+.info {
+  display: flex;
+  justify-content: space-evenly;
+
+  padding-top: 6px;
+
+  font-family: var(--cards-font);
+  color: #252222;
+}
+.info-item {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  margin: 10px;
-  margin-left: 0;
+  margin: 0;
 }
-.country-item__name {
+
+.info-item:hover {
+  cursor: zoom-in;
+}
+
+.search-form {
+  display: flex;
+  justify-content: center;
+
+  max-width: 480px;
+  margin: 0 auto;
+  margin-top: 15px;
+  padding: 14px 0;
+
+  border-radius: 20px;
+  background-color: var(--search__form-bg);
+}
+.search-form input {
+  max-width: 280px;
+  height: 30px;
+  padding-left: 5px;
+
+  font-size: 24px;
+  font-family: var(--search__form-font);
+
+  border-radius: 10px;
+  border-color: transparent;
+}
+.search-form button {
+  margin-left: 15px;
+  padding: 5px 15px;
+
+  font-size: 17px;
+  font-family: var(--search__form-font);
+
+  border-radius: 20px;
+  border-color: transparent;
+}
+.search-form button:hover:enabled {
+  background-color: var(--search__form__button-accent);
+  color: var(--card-bg);
+}
+.load-more {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 5px 15px;
+  width: 200px;
+  height: 45px;
+
   font-size: 30px;
-  font-weight: 500;
-  margin: 0 0 0 15px;
+  font-family: var(--search__form-font);
+
+  border-radius: 20px;
+  border-color: transparent;
+  background-color: var(--search__form-bg);
 }
-.country-item__title {
-  font-size: 20px;
-  font-weight: 500;
+.load-more:hover:enabled,
+.searchAnchor:hover {
+  background-color: var(--load-more__button-accent);
+  color: var(--card-bg);
 }
-.country-item__text {
-  font-weight: normal;
-  margin-left: 10px;
+.searchAnchor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 5px 15px;
+  width: 200px;
+  height: 45px;
+
+  font-size: 30px;
+  font-family: var(--search__form-font);
+
+  border-radius: 20px;
+  border-color: transparent;
+  background-color: var(--search__form-bg);
+}
+.footer__buttons {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 24px;
 }
