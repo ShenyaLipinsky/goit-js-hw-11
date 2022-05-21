@@ -72,7 +72,7 @@ async function renderMarkup() {
         </div>`;
       })
       .join('');
-    // console.log(render);
+
     await refs.gallery.insertAdjacentHTML('beforeend', render);
     refs.btnLoadMore.classList.remove('hidden');
     refs.btnSearchAnchor.classList.remove('hidden');
