@@ -60,7 +60,7 @@ refs.btnLoadMore.addEventListener('click', async event => {
   setTimeout(() => {
     page += 1;
     event.view.scrollBy({
-      top: 800,
+      top: 1000,
       behavior: 'smooth',
     });
   }, 300);
